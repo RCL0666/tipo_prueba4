@@ -58,3 +58,35 @@ def resgistrar_estudiante():
                 print(f"codigo:{codigo}")
                 return
         print("ERROR: Estudiante no encontrado")
+        
+def modificar_estudiante():
+    codigo =input("Ingrese el codigo del estudiante a modificar").strip()
+    if codigo not in estudiantes:
+        print("ERROR: estudiante no encontrado")
+        return
+    try:
+        nueva_edad = int(input("Ingrese la nueva edasd del estudiante (12 - 80):"))
+        if nueva_edad<12 or nueva_edad>80:
+            print("ERROR: La edad debe estar entre 12 - 80")
+            return
+    except ValueError:
+        print("ERROR: ingrese numeros enteros positivos")
+        return
+    
+    nuevo_genero=input("Ingrese el nuevo genero del estudinate M/F:").strip().upper()
+    if nuevo_genero not in ['M','F']:
+        print("ERROR: genero invalido debe ser M o F")
+        return
+    try:
+        nuevo_promedio =float(input("Ingrese el nuevo promedio del estudiante (1.0 - 7.0):"))
+        if nuevo_promedio<1.0 or nuevo_promedio>7.0:
+            print("ERROR: el promedio debe estar entre 1.0 - 7.0")
+            return
+    except ValueError:
+        print("ERROR: ingrese un numero valido")
+        return
+    
+    estudiantes[codigo]['edad']=nueva_edad
+    estudiantes[codigo]['genero']=nuevo_genero
+    estudiantes[codigo]['promedio']=nuevo_promedio
+    print("Estudiante modificado con exito") 
