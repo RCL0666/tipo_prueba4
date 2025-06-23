@@ -24,3 +24,7 @@ def resgistrar_estudiante():
         print("ERROR: genero incorrecto")
         return
     
+    codigo=input("Ingrese el codigo del estudiante(debe ser unico,6 caracteres y alfanumerico:)")
+    if len(codigo)!=6 or not codigo.isalnum() or codigo in estudiantes:
+        print("ERROR: codigo incorrecto, debe ser unico , 6 caracteres y alfanumerico")
+        return
