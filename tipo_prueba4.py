@@ -38,3 +38,10 @@ def resgistrar_estudiante():
         print("ERROR: promedio invalido intente nuevamente")
         return
     
+    estudiantes[codigo]={
+        'nombre':nombre,
+        'edad':edad,
+        'genero':genero,
+        'promedio':promedio
+    }
+    
