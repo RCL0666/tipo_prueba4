@@ -9,5 +9,12 @@ def resgistrar_estudiante():
     
     if any(i['nombre'].lower()==nombre.lower() for i in estudiantes.values()):
             print( "ERROR: El estudiante ya existe")
-  
+    # se pide al usuario su edad yse valida que este en el rango         
+    try:
+        edad = int(input("Ingrese la edad del estudiante:"))
+        if edad<12 or edad>80:
+            print("ERROR: la edad debe estar entre 12 y 80")
+            return
+    except ValueError:
+        print("ERROR: ingrese numeros enteros positivos")
 
