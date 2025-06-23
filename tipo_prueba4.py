@@ -90,3 +90,16 @@ def modificar_estudiante():
     estudiantes[codigo]['genero']=nuevo_genero
     estudiantes[codigo]['promedio']=nuevo_promedio
     print("Estudiante modificado con exito") 
+    
+def eliminar_estudiante():
+    codigo=input("Ingrese el codigo del estudiante a eliminar:").strip()
+    if codigo in estudiantes:
+        del estudiantes[codigo]
+        print("Estudiante eliminado con exito")
+    else:
+        print("ERROR: estudiante no encontraddo")
+        
+        
+        
+        
+        
