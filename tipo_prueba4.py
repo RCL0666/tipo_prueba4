@@ -44,4 +44,17 @@ def resgistrar_estudiante():
         'genero':genero,
         'promedio':promedio
     }
+    print("Estudiante registrado con exito")
     
+    
+    def buscar_estudiante():
+        dato = input("ingrese el codigo del estudiante:").strip()
+        for codigo,est in estudiantes.items():
+            if est['nombre'].lower()==dato.lower() or codigo==dato:
+                print(f"nombre: {est[nombre]}")
+                print(f"edad: {est[edad]}")
+                print(f"genero: {est[genero]}")
+                print(f"promedio: {est[promedio]}")
+                print(f"codigo:{codigo}")
+                return
+        print("ERROR: Estudiante no encontrado")
