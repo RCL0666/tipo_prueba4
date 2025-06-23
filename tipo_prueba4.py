@@ -28,3 +28,13 @@ def resgistrar_estudiante():
     if len(codigo)!=6 or not codigo.isalnum() or codigo in estudiantes:
         print("ERROR: codigo incorrecto, debe ser unico , 6 caracteres y alfanumerico")
         return
+
+    try:
+        promedio = float(input("Ingrese el promedio del estudiante (1.0 - 7.0):"))
+        if promedio<1.0 or promedio>7.0:
+            print("ERROR: el promedio debe estar entre 1.0 y 7.0")
+            return
+    except ValueError:
+        print("ERROR: promedio invalido intente nuevamente")
+        return
+    
