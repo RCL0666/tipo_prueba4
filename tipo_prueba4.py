@@ -18,3 +18,9 @@ def resgistrar_estudiante():
     except ValueError:
         print("ERROR: ingrese numeros enteros positivos")
 
+
+    genero=input("Ingrese el genero del estudiante M/F:").strip().upper()
+    if genero not in ['M','F']:
+        print("ERROR: genero incorrecto")
+        return
+    
