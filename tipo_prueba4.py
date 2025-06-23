@@ -100,6 +100,16 @@ def eliminar_estudiante():
         print("ERROR: estudiante no encontraddo")
         
         
+def mostrar_estidad():
+    if not estudiantes:
+        print("No hay registros del estudiante")
+        return
+    for codigo, est in estudiantes.items():
+            print(f"[{codigo}]-{est['nombre']} (promedio:{est['promedio']:.1f})")
+        
+
+        
+        
         
         
         
