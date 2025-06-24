@@ -9,7 +9,7 @@ def resgistrar_estudiante():
     
     if any(i['nombre'].lower()==nombre.lower() for i in estudiantes.values()):
             print( "ERROR: El estudiante ya existe")
-     
+            return
     try:
         edad = int(input("Ingrese la edad del estudiante:"))
         if edad<12 or edad>80:
@@ -17,7 +17,7 @@ def resgistrar_estudiante():
             return
     except ValueError:
         print("ERROR: ingrese numeros enteros positivos")
-
+        return
 
     genero=input("Ingrese el genero del estudiante M/F:").strip().upper()
     if genero not in ['M','F']:
@@ -47,17 +47,17 @@ def resgistrar_estudiante():
     print("Estudiante registrado con exito")
     
     
-    def buscar_estudiante():
-        dato = input("ingrese el codigo del estudiante:").strip()
-        for codigo,est in estudiantes.items():
-            if est['nombre'].lower()==dato.lower() or codigo==dato:
-                print(f"nombre: {est[nombre]}")
-                print(f"edad: {est[edad]}")
-                print(f"genero: {est[genero]}")
-                print(f"promedio: {est[promedio]}")
-                print(f"codigo:{codigo}")
-                return
-        print("ERROR: Estudiante no encontrado")
+def buscar_estudiante():
+    dato = input("ingrese el codigo del estudiante:").strip()
+    for codigo,est in estudiantes.items():
+        if est['nombre'].lower()==dato.lower() or codigo==dato:
+            print(f"nombre: {est['nombre']}")
+            print(f"edad: {est['edad']}")
+            print(f"genero: {est['genero']}")
+            print(f"promedio: {est['promedio']}")
+            print(f"codigo:{codigo}")
+            return
+    print("ERROR: Estudiante no encontrado")
         
 def modificar_estudiante():
     codigo =input("Ingrese el codigo del estudiante a modificar").strip()
@@ -107,9 +107,34 @@ def mostrar_estidad():
     for codigo, est in estudiantes.items():
             print(f"[{codigo}]-{est['nombre']} (promedio:{est['promedio']:.1f})")
         
+def menu():
+    while True:
+        print("\n --- MENU PRINCIPAL ---")
+        print("[1]-- Registrar Estudinete")
+        print("[2]-- Buscar Estudiante")
+        print("[3]-- Modificar Estudiante")
+        print("[4]-- Eliminar Estudiante")
+        print("[5]-- Mostrar Estudiantes")
+        print("[6]-- Salir")
+        
+        opcion=input(" ingrese una opcion [1-6]:")
 
-        
-        
-        
-        
+
+        if opcion=="1":
+            resgistrar_estudiante()
+        elif opcion=="2":
+            buscar_estudiante()
+        elif opcion=="3":
+            modificar_estudiante()
+        elif opcion=="4":
+            eliminar_estudiante()
+        elif opcion=="5":
+            mostrar_estidad()
+        elif opcion=="6":
+            print("Progrma Finalizado...")
+            break
+        else:
+            print("Opcion invalida intente nuevamente")
+menu()
+
         
